@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+createLogin();
+function createLogin() {
+
+var request = $.ajax({
+  url: "http://localhost:3001/tickets",
+  type: "GET",
+  dataType: 'json',
+  contentType: 'application/json',
+});
+
+request.done(function(res) {
+const {statusCode, status } = res;
+if (statusCode === 200 && status === 'success') {
+const {tickets} = res;
+           const tableBody = $('#issueTableBody');
+            tickets.forEach((issue, index) => {
+            const status = issue.status || '<Select><option></option><option>Pending</option><option>Completed</option></select>';
+            const completedTime = issue.completedTime || '<input type="time" id="time" name="appt">';
+            const completedBy = issue.completedBy || '<Select><option></option><option>SAKTHIVEL V</option><option>GnanaPrabhu</option></select>';
+                tableBody.append(`
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${issue.ticketId}</td>
+                        <td>${issue.name}</td>
+                        <td>${issue.department}</td>
+                        <td>${issue.date}</td>
+                        <td>${issue.time}</td>
+                        <td>${issue.issue}</td>
+                        <td>${issue.comment}</td>
+                        <td>${issue.status}</td>
+                        <td>${completedTime}</td>
+                        <td>${completedBy}</td>
+                    </tr>
+                `);
+            });
+} else {
+alert(message);
+}
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});
+}
+</script>
+</head>
+<body>
+
+<h2>IT HelpDesk Form Data</h2>
+<table>
+    <thead>
+                <tr>
+                    <th scope="col">S.NO</th>
+                    <th scope="col">TicketId</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Issue</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Completed Time</th>
+                    <th scope="col">Completed By</th>
+                </tr>
+            </thead>
+            <tbody id="issueTableBody">
+            
+            </tbody>
+</table>
+
+</body>
+</html>
+
+
