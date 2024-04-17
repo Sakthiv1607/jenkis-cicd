@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="fgSignIn">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="col-12">
+                    <mat-label>Enter your Username</mat-label>
+                    <input matInput #userNameRef type="text" placeholder="Enter the Username"
+                        formControlName="userName" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="col-12">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput #passwordRef type="password" placeholder="Enter the Password"
+                        formControlName="password" required>
+                </mat-form-field>
+                <button mat-raised-button type="button" color="primary" (click)="signIn()">SignIn</button>
+            </div>
+        </div>
+    </form>
+</div>

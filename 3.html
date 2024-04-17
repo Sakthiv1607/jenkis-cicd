@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IT HelpDesk Request</title>
+  <link rel="icon" type="image/x-icon" href="image (2).png">
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1, h4 {
+        font-size: 1vw; /* make our h1 tag larger */
+        font-family: sans-serif; /* choosing our font */
+        background: linear-gradient(to right, rgba(255, 215, 255, 0) 0%, rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%, rgb(224, 246, 255) 60%, rgb(78, 99, 132) 61%); /* you can change the colors based on your preference */
+        background-clip: text; /*it defines how far the background should extend within an element, here we set it to text */
+        -webkit-background-clip: text; /*for browsers compatibility */
+        -webkit-text-fill-color: transparent; /* specifies the fill color of text characters. We use transparent to use the background as our text fill  */
+        animation: wave 2000ms ease alternate infinite;
+        transition: all 0.4s ease;
+      }
+      @keyframes wave {
+        0% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 50vw 10px;
+        }
+      }
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("1538477213540.png");
+  height: 87%;
+  min-height: 500px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  left: 20px;
+  margin: 210px;
+  max-width: 500px;
+  padding: 30px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], select, textarea, input[type=date], input[type=time] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 10px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=select]:focus, input[type=list]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 5px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+<script>
+    function createLogin() {
+    var data = {
+        name: $('#name').val(),
+        department: $('#department').val(),
+        date: $('#date').val(),
+        time: $('#time').val(),
+        issue: $('#issue').val(),
+        comment: $('#comment').val()
+  };
+    var jsonData = JSON.stringify(data);
+
+var request = $.ajax({
+  url: "http://localhost:3001/create-ticket",
+  type: "POST",
+
+  data: jsonData,
+  dataType: 'json',
+  contentType: 'application/json',
+});
+
+request.done(function(res) {
+const {statusCode, status, message } = res;
+if (statusCode === 200 && status === 'success') {
+alert(message)
+}
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});
+}
+
+
+    </script>
+
+
+</head>
+<body>
+<div style="width: 30%; display: flex">
+
+<img class="hfe-site-logo-img elementor-animation-" src="image (2).png" style="width: 20%"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+<img class="hfe-site-logo-img elementor-animation-" src="https://megsoft.co.in/wp-content/uploads/2023/08/logo-2.png"> 
+</div>
+
+
+<h1 style="text-align:center">IT HelpDesk Website</h1>
+<h4 style="text-align:center">Book your complaints and IT team will reach you soon ! ..... </h4>
+
+<div class="bg-img">
+  <form class="container" style="width: 100%">
+   
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" id="name" required style="width: 100%">
+<br> <br>
+    <label for="department"><b>Department</b></label><br>
+    <select id="department" name="department">
+          <option value="empty"></option>
+          <option value="Development"><b>Development</b></option>
+          <option value="QA"><b>QA</b></option>
+          <option value="UI"><b>UI</b></option>
+          <option value="ContentWriting"><b>ContentWriting</b></option>
+          <option value="Database"><b>Database</b></option>
+          <option value="GTS"><b>GTS</b></option>
+          <option value="Compliance"><b>Compliance</b></option>
+        </select>
+    <br> <br>
+        <label for="date"><b>Date</b></label>
+     
+     <br> 
+  <input type="date" id="date" name="date">
+      <br> <br>
+    
+        <label for="time"><b>Time</b></label>
+      
+   <br>
+  <input type="time" id="time" name="appt">
+    <br> <br>
+        <label for="issue"><b>Issue</b></label>
+     <br>
+        <select id="issue" name="issue">
+          <option value="empty"></option>
+          <option value="Mouse issue"><b>Mouse issue</b></option>
+          <option value="Keyboard issue"><b>Keyboard issue</b></option>
+          <option value="Monitor issue"><b>Monitor issue</b></option>
+          <option value="CPU issue"><b>CPU issue</b></option>
+          <option value="Application issue"><b>Application issue</b></option>
+          <option value="Application installation"><b>Application installation</b></option>
+          <option value="Application uninstall"><b>Application uninstall</b></option>
+        </select>  <br>  <br>
+    
+      
+        <label for="comment"><b>Comments</b></label>
+        <textarea id="comment" name="comment" placeholder="Write your issues in detail.." style="height:200px"></textarea>
+     <br> <br>
+
+    <button type="button" class="btn" onclick="createLogin()">Submit</button>
+    <br> <br>
+    <span style="text-align: center"><b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&copy; Designed and Developed By IT Team 2024</b></span>
+  </form>
+</div>
+
+
+
+</body>
+</html>
+

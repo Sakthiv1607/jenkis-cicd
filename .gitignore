@@ -1,0 +1,41 @@
+/help-desk/node_modules
+
+# Compiled output
+/help-desk-ui/dist
+/help-desk-ui/tmp
+/help-desk-ui/out-tsc
+/help-desk-ui/bazel-out
+
+/help-desk-ui# Node
+/help-desk-ui/node_modules
+/help-desk-uinpm-debug.log
+/help-desk-uiyarn-error.log
+
+/help-desk-ui# IDEs and editors
+/help-desk-ui.idea/
+/help-desk-ui.project
+/help-desk-ui.classpath
+/help-desk-ui.c9/
+/help-desk-ui*.launch
+/help-desk-ui.settings/
+/help-desk-ui*.sublime-workspace
+
+/help-desk-ui# Visual Studio Code
+/help-desk-ui.vscode/*
+/help-desk-ui!.vscode/settings.json
+/help-desk-ui!.vscode/tasks.json
+/help-desk-ui!.vscode/launch.json
+/help-desk-ui!.vscode/extensions.json
+/help-desk-ui.history/*
+
+/help-desk-ui# Miscellaneous
+/help-desk-ui/.angular/cache
+/help-desk-ui.sass-cache/
+/help-desk-ui/connect.lock
+/help-desk-ui/coverage
+/help-desk-ui/libpeerconnection.log
+/help-desk-uitestem.log
+/help-desk-ui/typings
+/help-desk-ui# System files
+/help-desk-ui.DS_Store
+/help-desk-uiThumbs.db
